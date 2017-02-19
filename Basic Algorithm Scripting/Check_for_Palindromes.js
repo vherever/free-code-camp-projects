@@ -18,7 +18,7 @@
 function palindrome(str) {
     // Good luck!
 
-    var newString = str.replace(/[\W_]/g, '').toLowerCase();
+    var newString = str.replace(/[\W_]/g, '').toLowerCase(); // regular expression for all special symbols such as *=-/+_= and others
     return newString === newString.split('').reverse().join('');
 }
 
