@@ -12,4 +12,4 @@ function confirmEnding(str, target) {
     return (str.substring(str.length, str.length - target.length) == target);
 }
 
-confirmEnding("Bastian", "n");
+confirmEnding("Bastian", "n"); // true
