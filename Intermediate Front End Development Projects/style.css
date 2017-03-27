@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+body {
+    font-family: 'Oswald', sans-serif;
+    position: relative;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+.quoteContainer {
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    display: table;
+    padding: 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+.loading {
+    color: #000000;
+}
+.content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding-bottom: 30px;
+}
+.getQuote {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 0;
+    border: none;
+    height: 30px;
+    width: 120px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.getQuote:focus {
+    outline: none;
+    border: none;
+}
+.getQuote:hover {
+    background: rgba(255,255,255,.8);
+}
+.quote {
+    font-size: 25px;
+    line-height: 30px;
+}
+.author {
+    float: right;
+}
+.makeTweet {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.makeTweet:focus {
+    border: 1px solid #ffffff;
+    outline: none;
+}
+.makeTweet:hover {
+    background: rgba(255,255,255,.2);
+}
