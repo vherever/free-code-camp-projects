@@ -6,6 +6,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="weather">
+        <input id="searchCity" type="text">
+        <button id="searchButton">Go</button>
+        <div id="weatherContainer">
+            <div id="city" class="city"></div>
+            <div id="country" class="country"></div>
+            <div class="description_icon">
+                <div id="description" class="description"></div>
+                <div id="icon" class="icon"></div>
+            </div>
+            <div id="temp" class="temp cels"></div>
+            <div id="temp_min_max" class="temp_min_max"></div>
+            <div id="errorMessage" class="errorMessage"></div>
+        </div>
+    </div>
     <script src="../../vendor/jquery.min.js"></script>
     <script src="app.js"></script>
 </body>
