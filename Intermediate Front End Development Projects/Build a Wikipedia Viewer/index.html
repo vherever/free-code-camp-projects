@@ -3,21 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Wikipedia Viewer</title>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <div class="wikipediaViewer" ng-app="WikipediaSearch" ng-controller="MainController">
-        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Get random Article</a>
-        <form>
-            <input type="text" id="search"/>
-            <div id="results">
-
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="randomArticle">
+                        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Get random Article</a>
+                    </div>
+                    <div class="well bs-component">
+                        <form ng-submit="search()">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="search"/>
+                                    <span class="input-group-btn">
+                                      <button class="btn btn-default" type="button" ng-click="search()">Go</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="results">
+                                <a href="{{result.pageUrl}}" ng-repeat="result in results" target="_blank" class="result-component">
+                                    <div class="bs-component">
+                                        <blockquote>
+                                            <table width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <div class="textContainer">
+                                                            <p>{{result.title}}</p>
+                                                            <small>{{result.content}}</small>
+                                                        </div>
+                                                    </td>
+                                                    <td width="150px" align="right">
+                                                        <div ng-if="result.imageUrl" class="imageContainer">
+                                                            <img ng-src="{{result.imageUrl}}" alt=""/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </blockquote>
+                                    </div>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <button ng-click="search()">Search</button>
-        </form>
+        </div>
     </div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script type="text/javascript" src="../../vendor/angular.min.js"></script>
     <script type="text/javascript" src="../../vendor/jquery.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </body>

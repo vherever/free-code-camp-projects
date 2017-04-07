@@ -1,0 +1,11 @@
+.result-component:hover blockquote {
+    border-color: rgba(130, 232, 251, 1);
+    background: #0e4d5d;
+}
+a, a:hover {
+    text-decoration: none;
+}
+.randomArticle {
+    padding: 15px;
+    text-align: center;
+}
