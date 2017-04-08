@@ -26,17 +26,6 @@ var LocalWeather = (function () {
         _units: 'C' // options here - C, F
     };
 
-    var html_template = [
-        '<div id="weatherContainer">',
-            '<div id="city"></div>',
-            '<div id="country"></div>',
-            '<div id="description"></div>',
-            '<div id="icon"></div>',
-            '<div id="temp"></div>',
-            '<div id="temp_min_max"></div>',
-        '</div>'
-    ].join('');
-
     var _weather = {
         name: '',
         country: '',
