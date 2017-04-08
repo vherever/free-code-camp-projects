@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 body {
-    background: lightsalmon;
+    background: #e67e22;
     font-family: 'Fjalla One', sans-serif;
 }
 .weather {
@@ -52,4 +52,47 @@ a {
 }
 a:hover {
     text-decoration: underline;
+}
+.searchCity {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    background: transparent;
+    text-align: center;
+    font-size: 22px;
+}
+.searchCity:focus {
+    outline: none;
+}
+.weatherContainer {
+    margin-top: 20px;
+}
+.searchButton {
+    padding: 10px;
+    font-size: 22px;
+    text-transform: uppercase;
+    background: #fff;
+    border: 1px solid #ffffff;
+    color: #e67e22;
+    font-weight: bold;
+    cursor: pointer;
+}
+.searchButton:focus {
+    outline: none;
+}
+.errorMessage {
+    margin-bottom: 10px;
+}
+::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.27);
+}
+::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.27);
+}
+:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.27);
+}
+:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.27);
 }

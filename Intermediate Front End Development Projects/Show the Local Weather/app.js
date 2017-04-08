@@ -5,7 +5,7 @@
  *
  */
 
-var localWeather = (function () {
+var LocalWeather = (function () {
 
     // $.ajaxSetup({cache: false});
 
@@ -21,7 +21,9 @@ var localWeather = (function () {
         apiUrl : 'http://api.openweathermap.org/data/2.5/weather?q=',
         apiKey: 'd4cec04e7716cc23e89ddd7d77914104',
         imgUrl: 'http://openweathermap.org/img/w/',
-        container: ''
+        container: '',
+        _metric: 'cels', // option here - fahr, cels
+        _units: 'C' // options here - C, F
     };
 
     var html_template = [
@@ -62,10 +64,10 @@ var localWeather = (function () {
                             temp_min: data.main.temp_min,
                             temp_max: data.main.temp_max
                         };
-
-                        console.log('_weather', _weather);
                         drawContent(_weather);
-
+                    },
+                    error: function (error) {
+                        $('#errorMessage').html('Cannot find the city. Please try another');
                     }
                 });
             } else {
@@ -80,27 +82,45 @@ var localWeather = (function () {
         $($weatherContainer).find('#country').html(data.country);
         $($weatherContainer).find('#description').html(data.description);
         $($weatherContainer).find('#icon').html('<img src="'+options.imgUrl + data.icon + '.png' +'">');
-        $($weatherContainer).find('#temp').html('<a href="javascript:;">' + data.temp + ' °C' + '</a>');
+        $($weatherContainer).find('#temp').html('<a href="javascript:;">' + drawTemp(data.temp) + ' °' + options._units + '</a>');
         $($weatherContainer).find('#temp_min_max').html(
             [
                 '<div class="temp_min">',
                     '<span class="">min: </span>',
-                        data.temp_min,
+                    drawTemp(data.temp_min),
                 '</div>',
                 '<div class="temp_max">',
                     '<span class="">max: </span>',
-                        data.temp_max,
+                    drawTemp(data.temp_max),
                 '</div>'
             ].join('')
         );
     }
+
+    function drawTemp(temp) {
+        if(options._metric == 'cels') {
+            return Math.round(temp);
+        } else if(options._metric == 'fahr') {
+            return Math.round(temp * 9/5 + 32);
+        }
+    }
+
+    $(document).on('click', '#temp a', function () {
+        if(options._metric == 'cels') {
+            options._metric = 'fahr';
+            options._units = 'F';
+        } else if(options._metric == 'fahr') {
+            options._metric = 'cels';
+            options._units = 'C';
+        }
+        drawContent(_weather);
+    });
 
     function validate() {
         return !!$searchCity.val().length;
     }
 
     function init() {
-        console.log('init!');
         getTheWeather();
     }
 
@@ -115,5 +135,5 @@ var localWeather = (function () {
 
 });
 
-var getWeather = new localWeather();
-getWeather.getInstance();
+var weather = new LocalWeather();
+weather.getInstance();
