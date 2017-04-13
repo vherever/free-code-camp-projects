@@ -54,10 +54,12 @@ var Twitch = function () {
         });
     }
 
-    function drawContainer() {
-        var compiled = _.template($("#twitchAppTemplate").html());
+    function tpl(selector) {
+        return _.template($(selector).html());
+    }
 
-        $("#twitchContainer").html(compiled({
+    function drawContainer() {
+        $("#twitchContainer").html(tpl('#twitchAppTemplate')({
             _channels: _channels
         }));
     }
