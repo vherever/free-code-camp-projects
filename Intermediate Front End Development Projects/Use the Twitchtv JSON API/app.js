@@ -7,7 +7,7 @@
 var Twitch = function () {
 
     var instance;
-    var channels = ["freecodecamp", "kaypealol", "brofresco", "Starladder5"];
+    var channels = ["freecodecamp", "kaypealol", "brofresco", "Starladder5", "sonycast_"];
 
     var o = {
         apiUrl: 'https://wind-bow.glitch.me/twitch-api/',
