@@ -9,7 +9,12 @@
 
 function chunkArrayInGroups(arr, size) {
     // Break it up.
-    return arr;
+    var _arr = [];
+    for(var i = 0, len = arr.length; i < len; i += size) {
+        _arr.push(arr.slice(0, size));
+        arr = arr.slice(size);
+    }
+    return _arr;
 }
 
 chunkArrayInGroups(["a", "b", "c", "d"], 2);
