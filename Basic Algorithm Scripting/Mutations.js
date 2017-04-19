@@ -13,9 +13,15 @@
  */
 
 function mutation(arr) {
-    return arr;
+    var _word1 = arr[0].toLowerCase();
+    var _word2 = arr[1].toLowerCase();
+    for(var i = 0; i < _word2.length; i ++) {
+        if(_word1.indexOf(_word2[i]) < 0) {
+            return false;
+        }
+    }
+    return true;
 }
-
 mutation(["hello", "hey"]);
 
 /**
